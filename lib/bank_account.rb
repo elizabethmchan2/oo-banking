@@ -2,17 +2,21 @@ require_relative 'transfer'
 class BankAccount
     attr_reader :name, :status
     attr_accessor :balance, :status
+    
     def initialize(name)
       @name = name
       @balance = 1000
       @status = "open"
     end
+    
     def deposit(amount)
         @balance = amount + @balance
     end
+    
     def display_balance
         "Your Balance is $#{balance}."
     end 
+    
     def valid?
         if @balance <= 0
             false
@@ -22,9 +26,11 @@ class BankAccount
             true
         end
     end
+    
     def close_account
         @status = "closed"
     end
+    
 end
 
 acc1 = BankAccount.new("marley")
